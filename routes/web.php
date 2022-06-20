@@ -18,8 +18,10 @@ Route::get('/cars', 'HomeController@car');
 Route::get('/pendanaan', 'HomeController@calculator');
 Route::post('/calculate', 'HomeController@calculate');
 //ContactControler adalah nama controler, sedangkan index adalah methodnya
+Route::get('/contacts', 'ContactController@index');
 Route::get('/contacts/create', 'ContactController@create');
 Route::post('/contacts', 'ContactController@store');
+Route::get('/contacts/{id}/detail','ContactController@show');
 Route::get('/contacts/{id}/edit','ContactController@edit');
 Route::patch('/contacts/{id}','ContactController@update');
 Route::delete('/contacts/{id}','ContactController@destroy');
