@@ -3,11 +3,11 @@
     <main class="flex-shrink-0 mb-5" id="contacts">
         <div class="container">
             <h1 class="mt-5 mb-5 text-center">Data Pelanggan</h1>
-            @if(session()->get('success'))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>{{session()->get('success')}}</strong> Berhasil Dong.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            @if(session()->get('jenis'))
+                <div class="alert alert-{{session()->get('type')}} alert-dismissible fade show" role="alert">
+                    <strong>{{session()->get('pesan')}}</strong>.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             @endif
             <div class="row">
                 <div class="col-md-8 offset-sm-2">

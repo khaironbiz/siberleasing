@@ -25,3 +25,5 @@ Route::get('/contacts/{id}/detail','ContactController@show');
 Route::get('/contacts/{id}/edit','ContactController@edit');
 Route::patch('/contacts/{id}','ContactController@update');
 Route::delete('/contacts/{id}','ContactController@destroy');
+
+Route::get('/brand', 'BrandController@index');

@@ -2,7 +2,7 @@
 @section('main')
     <main class="flex-shrink-0 mb-5" id="contacts">
         <div class="container">
-            <h1 class="mt-5 mb-5 text-center">Data Pelanggan</h1>
+
 
             @if(session()->get('success'))
             <div class="alert alert-success" role="alert">
@@ -15,9 +15,11 @@
             <?php
             $contact = $data['contact'];
             ?>
-            
-            <div class="row">
-                <div class="col-md-8 offset-sm-2">
+            <div class="card mt-5">
+                <div class="card-header bg-success text-white">
+                    <h1 class="text-center">Data Pelanggan</h1>
+                </div>
+                <div class="card-body">
                     <table class="table table-sm table-hover">
                         <tr>
                             <td>Nama</td><td>:</td><td>{{$contact->name}}</td>
@@ -35,6 +37,20 @@
                             <td>Foto</td><td>:</td><td><img src="{{ url('/assets/upload/images/users/'.$contact->foto) }}"></td>
                         </tr>
                     </table>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="{{url("contacts/{$contact->has_contact}/edit")}}#contacts" class="btn btn-success">Edit</a>
+                        </div>
+                        <div class="col-md-6">
+                            <form action="{{url("contacts/{$contact->id}")}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
